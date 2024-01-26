@@ -7,11 +7,9 @@ import icon03 from '../assets/images/icon03.png'
 import { BsArrowRight } from 'react-icons/bs'
 import DoctorList from '../components/Hospitals/HospitalList'
 
-
 const Home = () => {
   return (
     <>
-
       <section className='hero__section pt-[60px] 2xl:h-[800px]'>
         <div className="container">
           <div className="flex flex-col lg:flex-row gap-[90px] items-center justify-between">
@@ -78,7 +76,7 @@ const Home = () => {
                 <Link to='/services' className='w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none'>
                   <BsArrowRight className='group-hover:text-white w-6 h-5' />
                 </Link>
-
+            
               </div>
             </div>
             <div className='py-[30px] px-5'>
