@@ -7,6 +7,7 @@ import Dashboard from '../pages/Dashboard';
 import Services from '../components/Services/Services';
 import Hospital from '../components/Hospitals/Hospital';
 import Contact from '../pages/Contact';
+import ElderProfile from '../pages/ElderProfile';
 
 
 const Routers = () => {
@@ -18,7 +19,7 @@ const Routers = () => {
     <Route path='/services' element={<Services/>}></Route>
     <Route path='/hospital' element={<Hospital/>}></Route>
     <Route path='/contact' element={<Contact/>}></Route>
-
+    <Route path='/profile' element={<ElderProfile/>}></Route>
 
 
   </Routes>
