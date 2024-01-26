@@ -11,8 +11,31 @@ const navLinks = [
     display: "Home",
   },
   {
-    path: "/dashboard",
-    display: "Dashboard",
+    path: "/hospital",
+    display: "Find a Hospital",
+  },
+  {
+    path: "/services",
+    display: "Services",
+  },
+  {
+    path: "/contact",
+    display: "Contact Us",
+  },
+];
+
+const DoctorNavLinks = [
+
+];
+
+const relativeLinks = [
+  {
+    path: "/",
+    display: "Home",
+  },
+  {
+    path: "/profile",
+    display: "Profile",
   },
   {
     path: "/hospital",
@@ -52,33 +75,33 @@ const Header = () => {
   const toggleMenu = () => menuRef.current.classList.toggle('show__menu')
 
   function loginBtn() {
-    
+
     const userId = localStorage.getItem('userId');
     const [user, setSetUser] = useState(userId);
     useEffect(() => {
       const userId = localStorage.getItem('userId');
-      setSetUser(userId); 
-    },[user])
-    const handleLogout = () =>{
+      setSetUser(userId);
+    }, [user])
+    const handleLogout = () => {
       setSetUser(null);
       localStorage.clear();
       location.reload();
     }
     const loggs = {
       login: <Link to='/login'>
-      <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]">Login</button>
-     </Link> ,
-      logout: 
-      <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]" onClick={handleLogout}>Logout</button>
+        <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]">Login</button>
+      </Link>,
+      logout:
+        <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]" onClick={handleLogout}>Logout</button>
     }
     return (
       <>
-      {user == null ? loggs.login : loggs.logout}
+        {user == null ? loggs.login : loggs.logout}
       </>
     )
   }
 
-  
+  const [userType, setUserType] = useState(localStorage.getItem('userType'));
 
   return <header className="header flex items-center" ref={headerRef}>
     <div className="container">
@@ -91,11 +114,26 @@ const Header = () => {
         {/* menu  */}
         <div className="navigation" ref={menuRef} onClick={toggleMenu}>
           <ul className="menu flex items-center gap-[2.7rem]">
-            {
-              navLinks.map((link, index) => <li key={index}>
-                <NavLink to={link.path} className={navClass => navClass.isActive ? 'text-primaryColor text-[16px] leading-7 font-[600]' : 'text-textColor text-[16px] leading-7 font-[500] hover:text-primaryColor'}>{link.display}</NavLink>
-              </li>)  
+            {userType === 'Doctor' ?
+              DoctorNavLinks.map((link, index) => (
+                <li key={index}>
+                  <NavLink to={link.path} className={navClass => navClass.isActive ? 'text-primaryColor text-[16px] leading-7 font-[600]' : 'text-textColor text-[16px] leading-7 font-[500] hover:text-primaryColor'}>{link.display}</NavLink>
+                </li>
+              )) : (userType === 'Relative' ?
+                relativeLinks.map((link, index) => (
+                  <li key={index}>
+                    <NavLink to={link.path} className={navClass => navClass.isActive ? 'text-primaryColor text-[16px] leading-7 font-[600]' : 'text-textColor text-[16px] leading-7 font-[500] hover:text-primaryColor'}>{link.display}</NavLink>
+                  </li>
+                )) : (
+                  navLinks.map((link, index) => (
+                    <li key={index}>
+                      <NavLink to={link.path} className={navClass => navClass.isActive ? 'text-primaryColor text-[16px] leading-7 font-[600]' : 'text-textColor text-[16px] leading-7 font-[500] hover:text-primaryColor'}>{link.display}</NavLink>
+                    </li>
+                  ))
+                )
+              )
             }
+
           </ul>
         </div>
 
@@ -110,7 +148,7 @@ const Header = () => {
           </div>
           {loginBtn()}
 
-          
+
           <span className='md:hidden' onClick={toggleMenu}>
             <BiMenu className='w-6 h-6 cursor-pointer' />
           </span>
@@ -126,4 +164,3 @@ export default Header
 
 
 
- 
