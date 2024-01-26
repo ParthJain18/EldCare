@@ -5,6 +5,7 @@ import { useState } from 'react';
 const Contact = () => {
 
   const user = JSON.parse(localStorage.getItem('user'))
+  
 
   const [formData, setFormData] = useState({
     email: '',

@@ -10,6 +10,8 @@
     "preview": "vite preview --port 8080"
   },
   "dependencies": {
+    "devextreme": "23.2.3",
+    "devextreme-react": "23.2.3",
     "react": "^18.2.0",
     "react-date-picker": "^10.5.1",
     "react-dom": "^18.2.0",
