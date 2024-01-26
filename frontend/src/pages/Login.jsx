@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import signupImg from '../assets/images/signup.jpg'
+
 import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
@@ -18,7 +18,7 @@ const Login = () => {
         <div className="mt-7">
           <button type='submit' className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg px-4 py-3 flex items-center justify-center">
             Login
-            {/* <Loader onClick={handleButtonClick}isLoading={isLoading} buttonText="Log in"/> */}
+            
             </button>
         </div>
 
