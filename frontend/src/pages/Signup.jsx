@@ -37,6 +37,7 @@ const Signup = () => {
         toast.success("Registration Successfull!")
         if(values.userType === 'Doctor') navigate('/dashboard')
         else navigate('/');
+        location.reload();
       } catch (error){
         toast.error(error.response.data.message);
       }
