@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import logo from '../../assets/images/logo.png'
 import userImg from '../../assets/images/avatar-icon.png'
 import { NavLink, Link } from 'react-router-dom'
@@ -55,15 +55,33 @@ const Header = () => {
   const toggleMenu = () => menuRef.current.classList.toggle('show__menu')
 
   function loginBtn() {
-
+    
+    const userId = localStorage.getItem('userId');
+    const [user, setSetUser] = useState(userId);
+    useEffect(() => {
+      const userId = localStorage.getItem('userId');
+      setSetUser(userId); 
+    },[user])
+    const handleLogout = () =>{
+      setSetUser(null);
+      localStorage.clear();
+      location.reload();
+    }
+    const loggs = {
+      login: <Link to='/login'>
+      <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]">Login</button>
+     </Link> ,
+      logout: 
+      <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]" onClick={handleLogout}>Logout</button>
+    }
     return (
-      
-      <Link to='/login'>
-        <button className="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]">Login</button>
-      </Link>
+      <>
+      {user == null ? loggs.login : loggs.logout}
+      </>
     )
   }
 
+  
 
   return <header className="header flex items-center" ref={headerRef}>
     <div className="container">
@@ -95,6 +113,7 @@ const Header = () => {
           </div>
           {loginBtn()}
 
+          
           <span className='md:hidden' onClick={toggleMenu}>
             <BiMenu className='w-6 h-6 cursor-pointer' />
           </span>
