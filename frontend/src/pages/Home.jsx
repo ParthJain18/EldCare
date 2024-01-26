@@ -5,6 +5,7 @@ import icon01 from '../assets/images/icon01.png'
 import icon02 from '../assets/images/icon02.png'
 import icon03 from '../assets/images/icon03.png'
 import { BsArrowRight } from 'react-icons/bs'
+import DoctorList from '../components/Hospitals/HospitalList'
 
 
 const Home = () => {
@@ -119,7 +120,7 @@ const Home = () => {
             <h2 className="heading text-center">Our Top Hospitals For Best Services</h2>
             <p className="text__para text-center">All the hospitals are known for their service and also are well recognized.</p>
           </div>
-
+          <DoctorList/>
 
         </div>
       </section>
