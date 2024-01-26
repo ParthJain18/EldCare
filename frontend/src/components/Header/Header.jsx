@@ -5,7 +5,6 @@ import { NavLink, Link } from 'react-router-dom'
 import { BiMenu } from 'react-icons/bi';
 
 
-
 const navLinks = [
   {
     path: "/",
@@ -44,8 +43,6 @@ const Header = () => {
       }
     })
   }
-
-  
 
   useEffect(() => {
     handleStickyHeader()
@@ -129,4 +126,4 @@ export default Header
 
 
 
-// npm run dev 
+ 

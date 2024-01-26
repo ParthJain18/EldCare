@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import signupImg from '../assets/images/signup.jpg'
+
 import { Link, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios'

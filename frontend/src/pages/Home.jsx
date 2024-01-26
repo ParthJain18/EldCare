@@ -5,12 +5,11 @@ import icon01 from '../assets/images/icon01.png'
 import icon02 from '../assets/images/icon02.png'
 import icon03 from '../assets/images/icon03.png'
 import { BsArrowRight } from 'react-icons/bs'
-
+import DoctorList from '../components/Hospitals/HospitalList'
 
 const Home = () => {
   return (
     <>
-
       <section className='hero__section pt-[60px] 2xl:h-[800px]'>
         <div className="container">
           <div className="flex flex-col lg:flex-row gap-[90px] items-center justify-between">
@@ -77,7 +76,7 @@ const Home = () => {
                 <Link to='/services' className='w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px] mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none'>
                   <BsArrowRight className='group-hover:text-white w-6 h-5' />
                 </Link>
-
+            
               </div>
             </div>
             <div className='py-[30px] px-5'>
@@ -119,7 +118,7 @@ const Home = () => {
             <h2 className="heading text-center">Our Top Hospitals For Best Services</h2>
             <p className="text__para text-center">All the hospitals are known for their service and also are well recognized.</p>
           </div>
-
+          <DoctorList/>
 
         </div>
       </section>
