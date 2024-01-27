@@ -1,0 +1,67 @@
+{
+    "trainingData":[
+        {
+            "tag": "schedule-related",
+            "data": [
+                "What's on my schedule for today?",
+                "What pills do I need to take this morning?",
+                "Is there anything important I need to do today?",
+                "Is there a doctor's appointment scheduled for me this week?",
+                "When is my next grocery shopping trip?",
+                "Should I take my walk before or after breakfast?",
+                "Can you tell me if I have any appointments on Tuesday?",
+                "Is there anything planned for my birthday next month?",
+                "What time is my next doctor's appointment?",
+                "Can you tell me if I have any appointments on Tuesday?",
+                "Is there anything planned for my birthday next month?",
+                "What time is my next doctor's appointment?",
+                "When do I need to take my next dose of medication?",
+                "when do you think I should take my next dose of medication?",
+                "what's on my schedule for tomorrow?",
+                "what's on my schedule for the rest of the week?",
+                "what's on my schedule for the rest of the month?"
+            ]
+        },
+        {
+            "tag": "reminder",
+            "data": [
+                "Please remind me to visit John today at 12pm.",
+                "Set an alarm for me to take my vitamins at 10am.",
+                "Can you add a reminder to water my plants every evening?",
+                "Tell me to call the pharmacy tomorrow to refill my prescription.",
+                "Remind me to check my mailbox next time I go outside.",
+                "Please note that I have a dentist appointment on Friday at 3pm.",
+                "Don't forget! Book tickets for the play next week.",
+                "Add a reminder to feed the dog before I leave for work.",
+                "Please remind me to pick up milk and eggs at the store later.",
+                "Can you set an alarm for me to wake up early on Saturday?",
+                "Reminder: Call Margaret at 6pm.",
+                "Remind me to take my blood pressure medication at 8am.",
+                "remind me to take out the trash tomorrow morning.",
+                "remind me to take my medication at 8am.",
+                "remind me to visit Albert tomorrow at 12pm."
+            ]
+        },
+        {
+            "tag": "general",
+            "data": [
+                "What's the weather like today?",
+                "Will it rain tomorrow?",
+                "Is it going to be hot this weekend?",
+                "What's the weather like in San Francisco?",
+                "Is it going to be cold in the next few days?",
+                "What's the weather like in Paris?",
+                "How are you doing today?",
+                "What's new with you?",
+                "Tell me a joke!",
+                "Can you play some music for me?",
+                "What's the weather like today?",
+                "What's the top news story this morning?",
+                "Can you show me pictures of my grandchildren?",
+                "Can you read me a poem?",
+                "I had a delicious cake for breakfast!",
+                "I'm feeling a bit lonely today."
+            ]
+        }
+    ]
+}
