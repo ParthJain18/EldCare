@@ -10,7 +10,6 @@ def add_patient():
     from eldcare.auth.methods import auth
     user = auth.current_user
     doctorId = user["localId"]
-
     patientEmail = request.json.get("patientEmail")
     try:
         if auth.current_user is None:
