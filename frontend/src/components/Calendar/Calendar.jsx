@@ -40,8 +40,11 @@ const Calendar = () => {
   useEffect(() => {
     async function fetchPatientSchedule() {
       const patientSchedule = await axios.get("http://localhost:5000/schedule/" + patientId);
+      console.log(patientSchedule);
+      if(!patientSchedule.text){
+        return;
+      }
       const appointmentsData = patientSchedule.data.appointments
-
       const data1 = appointmentsData
         ? Object.entries(appointmentsData).map(([id, details]) => ({
           startDate: new Date(details.startDate),
