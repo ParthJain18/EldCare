@@ -11,6 +11,7 @@ import ElderProfile from '../pages/ElderProfile';
 import Calendar from '../components/Calendar/Calendar'
 import DashBoard from '../pages/Dashboard';
 import { Navigate } from 'react-router-dom';
+import AddPatient from '../pages/AddPatient'
 
 const Routers = () => {
   const isAuthenticated = () => {
@@ -63,6 +64,7 @@ const Routers = () => {
     <Route path='/contact' element={<Contact/>}></Route>
     <Route path='/services' element={<Services/>}></Route>
     <Route path='/dashboard' element={<DoctorRoute component={DashBoard}/>}></Route>
+    <Route path='/addpatient' element={<DoctorRoute component={AddPatient}/>}></Route>
     <Route path='/profile' element={<AuthRoute component={ElderProfile}/>}></Route>
     <Route path='/schedule' element={<AuthRoute component={Calendar}/>}></Route>
 
