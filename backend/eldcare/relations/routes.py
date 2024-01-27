@@ -127,4 +127,3 @@ def get_relative(userId):
         return jsonify({"message": "Relative retrieved successfully!", "relative": relative}), 200
     except Exception as e:
         return jsonify({"message": "An error occurred while retrieving relative.","error": str(e)}), 402
-    

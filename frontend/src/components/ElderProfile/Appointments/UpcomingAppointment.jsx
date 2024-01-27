@@ -6,7 +6,7 @@ const UpcomingAppointment = () => {
     {
       id: 1,
       date: "2024-05-03",
-      treatment: "cancer",
+      treatment: "surgery",
       status: "completed",
       time: 9,
     },

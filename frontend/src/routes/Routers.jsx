@@ -14,6 +14,12 @@ import AddPatient from '../pages/AddPatient';
 import { Navigate } from 'react-router-dom';
 import Map from '../components/Map/Map'
 
+import Appointment from '../pages/Appointment'
+
+import RelativeDash from '../pages/RelativeDash'
+import AddElder from '../pages/AddElder'
+
+
 const Routers = () => {
   const isAuthenticated = () => {
     const accessToken = localStorage.getItem('userId');
@@ -26,6 +32,19 @@ const Routers = () => {
       const type = localStorage.getItem("userType");
       if(type == "Relative"){
         return <Navigate to="/" />
+      }
+      return <Component />;
+    } else {
+      // Redirect to the sign-in page if not authenticated
+      return <Navigate to="/login" />;
+    }
+  };
+
+  const RelativeRoute = ({ component: Component }) => {
+    if (isAuthenticated()) {
+      const type = localStorage.getItem("userType");
+      if(type == "Doctor"){
+        return <Navigate to="/dashboard" />
       }
       return <Component />;
     } else {
@@ -64,7 +83,10 @@ const Routers = () => {
     <Route path='/signup' element={<Signup/>}></Route>
     <Route path='/contact' element={<Contact/>}></Route>
     <Route path='/services' element={<Services/>}></Route>
-    <Route path='/map' element={<Map/>}></Route>
+    <Route path='/appointment' element={<Appointment/>}></Route>
+    <Route path='/map/:id' element={<RelativeRoute component={Map}/>}></Route>
+    <Route path='/relativedash' element={<RelativeRoute component={RelativeDash}/>}></Route>
+    <Route path='/addelder' element={<RelativeRoute component={AddElder}/>}></Route>
     <Route path='/addpatient' element={<DoctorRoute component={AddPatient}/>}></Route>
     <Route path='/dashboard' element={<DoctorRoute component={DashBoard}/>}></Route>
     <Route path='/profile/:id' element={<AuthRoute component={ElderProfile}/>}></Route>

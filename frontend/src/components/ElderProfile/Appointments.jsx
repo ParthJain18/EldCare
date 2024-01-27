@@ -15,7 +15,7 @@ const Appointments = () => {
     setSelected(e.target.innerText);
   }
   return (
-    <div className='w-full border border-gray-200 px-3 py-3 rounded-xl shadow-lg shadow-gray-300'>
+    <div className='w-full border border-gray-200 px-3 py-3 rounded-xl shadow-sm shadow-gray-300'>
       <div className='h-auto flex flex-row justify-between px-40 border-b border-gray-400 pb-2'>
         <button className={`${selected==='Upcoming Appointment'? `bg-gray-300`: `bg-inherit`} text-lg font-bold hover:bg-gray-300 px-4 py-2 rounded-xl`} onClick={(e) => handleChange(e)}>
           Upcoming Appointment
