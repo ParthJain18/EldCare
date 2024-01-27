@@ -1,0 +1,2 @@
+model_checkpoint_path: "C:\\Users\\parth\\OneDrive\\Python\\EldCare_backend\\eldcare\\chatClassifier\\model.tflearn"
+all_model_checkpoint_paths: "C:\\Users\\parth\\OneDrive\\Python\\EldCare_backend\\eldcare\\chatClassifier\\model.tflearn"
