@@ -13,8 +13,6 @@ console.log(appointmentsData)
 console.log("details:", details)
 
 
-
-
 export const data1 = [
     {
       text: 'Website Re-Design Plan',

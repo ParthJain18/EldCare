@@ -2,7 +2,7 @@ import React from 'react'
 
 const ElderDetails = () => {
   return (
-    <div className='w-full border border-gray-300 rounded-xl flex flex-row h-auto shadow-lg shadow-gray-300'>
+    <div className='w-full border  rounded-xl flex flex-row h-auto '>
       <div className='w-1/3 px-3 py-3'>
         <img src="https://www.aljazeera.com/wp-content/uploads/2024/01/Image-1-1705003176.jpg?resize=770%2C513&quality=80" alt="" className='rounded-2xl'/>
         <h1 className='text-2xl font-bold text-center pt-2'>Rajendra Joshi</h1>
