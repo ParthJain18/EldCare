@@ -52,7 +52,7 @@ const Routers = () => {
       return <Component />;
     } else {
       // Redirect to the home page if not authenticated
-      return <Navigate to="/" />;
+      return <Component/>;
     }
   };
   return (
