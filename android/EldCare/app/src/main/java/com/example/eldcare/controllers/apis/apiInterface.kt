@@ -8,6 +8,6 @@ import retrofit2.http.POST
 
 
 interface ChatAPI {
-    @POST("/")
-    fun getChat(@Body chatRequest: String): Call<ChatResponse>
+    @POST("/chat")
+    fun getChat(@Body chatRequest: ChatRequest): Call<ChatResponse>
 }

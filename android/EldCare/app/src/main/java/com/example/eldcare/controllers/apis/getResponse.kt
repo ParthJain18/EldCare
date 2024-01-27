@@ -10,30 +10,30 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 val retrofit = Retrofit.Builder()
-    .baseUrl("http://10.0.2.2:5000/chat/")
+    .baseUrl("http://10.0.2.2:5000/")
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
 val api = retrofit.create(ChatAPI::class.java)
 
-fun getResponse(user_input: String, callback: (String?) -> Unit) {
+fun getResponse(user_input: String, callback: (ChatResponse?) -> Unit) {
     val chatRequest = ChatRequest(user_input)
-    val call = api.getChat(user_input)
+    val call = api.getChat(chatRequest)
 
     call.enqueue(object : Callback<ChatResponse> {
-        override fun onResponse(call: Call<String>, response: Response<ChatResponse>) {
+        override fun onResponse(call: Call<ChatResponse>, response: Response<ChatResponse>) {
             if (response.isSuccessful) {
                 val chatResponse = response.body()
                 if (chatResponse != null) {
                     Log.d("HTTPSuccess", chatResponse.chat)
-                    callback(chatResponse.chat)
+                    callback(chatResponse)
                 }
             } else {
                 Log.d("HTTPFail", "Response not successful")
             }
         }
 
-        override fun onFailure(call: Call<String>, t: Throwable) {
+        override fun onFailure(call: Call<ChatResponse>, t: Throwable) {
             Log.d("HTTPFail", t.toString())
         }
     })

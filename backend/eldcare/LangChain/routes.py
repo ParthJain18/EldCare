@@ -22,4 +22,4 @@ def get_chat():
 
         return jsonify({"message": "Chat retrieved successfully!", "chat": res}), 200
     except Exception as e:
-        return jsonify({"message": "An error occurred while retrieving chat.","error": e}), 402
+        return jsonify({"message": "An error occurred while retrieving chat.","error": str(e)}), 402

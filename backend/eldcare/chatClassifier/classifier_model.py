@@ -105,4 +105,3 @@ def classify_chat(prompt):
     
     return tag
         
-classify_chat("What's on my schedule today?")

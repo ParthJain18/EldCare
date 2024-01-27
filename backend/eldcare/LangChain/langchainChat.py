@@ -1,8 +1,8 @@
 from openai import OpenAI
 
 def get_schedule_answer(userInput):
-    client = OpenAI(api_key="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")
-
+    client = OpenAI(api_key="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")
+    # client = OpenAI()
     schedule = """
         27-01-2024 (Today)
         8:00 AM - 9:00 AM: Breakfast
@@ -31,7 +31,7 @@ def get_schedule_answer(userInput):
     return completion.choices[0].message.content
 
 def get_general_answer(userInput):
-    client = OpenAI(api_key="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")
+    client = OpenAI(api_key="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")
     completion = client.chat.completions.create(
 
         model="gpt-3.5-turbo",

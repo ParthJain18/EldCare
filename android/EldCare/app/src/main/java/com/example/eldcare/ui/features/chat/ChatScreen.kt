@@ -124,7 +124,7 @@ fun ChatTextField(viewModel: ChatViewModel) {
                 GlobalScope.launch {
                     val response = getResponse(msg){
                         if (it == null) return@getResponse
-                        viewModel.sendMessage(it, false)
+                        viewModel.sendMessage(it.chat, false)
                     }
                     // Use the response here
                 }
