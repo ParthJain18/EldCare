@@ -11,15 +11,9 @@ const Overview = () => {
             <span className="text-yellowColor text-4xl leading-6 font-extrabold ">Dr Yogesh Kulkarni</span>
           </ul>
 
-          
-
-          
           <div>
             <h1 className='flex flex-col gap-2'>
             
-              
-
-              
               <ul className="grid sm:grid-cols-2 gap-[30px] py-5 pt-4 md:p-2 ">
                 <li className="p-4 rounded-xl bg-teal-50 mt-5 shadow-md">
                   <span className="text-blue-500 text-[15px] leading-6 font-semibold">Years of Experience</span>

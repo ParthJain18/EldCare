@@ -13,6 +13,7 @@ import DashBoard from '../pages/Dashboard';
 import AddPatient from '../pages/AddPatient';
 import { Navigate } from 'react-router-dom';
 import Map from '../components/Map/Map'
+import Appointment from '../pages/Appointment'
 
 const Routers = () => {
   const isAuthenticated = () => {
@@ -64,6 +65,7 @@ const Routers = () => {
     <Route path='/signup' element={<Signup/>}></Route>
     <Route path='/contact' element={<Contact/>}></Route>
     <Route path='/services' element={<Services/>}></Route>
+    <Route path='/appointment' element={<Appointment/>}></Route>
     <Route path='/map' element={<Map/>}></Route>
     <Route path='/addpatient' element={<DoctorRoute component={AddPatient}/>}></Route>
     <Route path='/dashboard' element={<DoctorRoute component={DashBoard}/>}></Route>
