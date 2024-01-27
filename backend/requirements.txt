@@ -1,0 +1,7 @@
+flask 
+flask-mysqldb 
+flask-jwt-extended 
+Pyrebase4
+flask_cors
+langchain
+openai

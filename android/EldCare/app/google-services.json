@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "520544665662",
+    "firebase_url": "https://eldcare-c4ce6-default-rtdb.firebaseio.com",
+    "project_id": "eldcare-c4ce6",
+    "storage_bucket": "eldcare-c4ce6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520544665662:android:4195b0220aa936de15916f",
+        "android_client_info": {
+          "package_name": "com.example.eldcare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhq58MFO_6dM_Npc0WN0gSG0kO3BsnArk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
