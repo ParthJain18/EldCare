@@ -2,7 +2,9 @@ import React from 'react'
 
 const PaymentInfo = () => {
   return (
-    <div>PaymentInfo</div>
+    <div className='flex items-center justify-center flex-col'>
+      PaymentInfo
+    </div>
   )
 }
 
