@@ -63,7 +63,8 @@ const Calendar = () => {
       title: e.appointmentData.text,
       startDate: e.appointmentData.startDate,
       endDate: e.appointmentData.endDate,
-      allDay: e.appointmentData.allDay
+      allDay: e.appointmentData.allDay,
+      userId: patientId
     });
     console.log(response);
   });

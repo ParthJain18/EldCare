@@ -17,7 +17,7 @@ const PatientCard = ({id}) => {
   }, [])
 
   return (
-    <a href={`/profile/${id}`} className="items-center bg-gray-50 rounded-lg shadow sm:flex border border-gray-300 hover:bg-gray-300">
+    <a href={`/profile/${id}`} className="items-center bg-gray-50 hover:bg-white rounded-lg sm:flex border border-gray-300 shadow-2xl hover:shadow-lg h-3/4 shadow-blue-200 hover:shadow-blue-200">
             <div className='md:h-full w-1/2'>
                   <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg object-cover h-full" src="https://t4.ftcdn.net/jpg/00/64/67/27/360_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" alt="Avatar"/>
             </div>
