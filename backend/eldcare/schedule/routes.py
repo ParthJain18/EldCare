@@ -43,6 +43,7 @@ def get_appointments(userId):
     from eldcare.auth.methods import auth
     try:
         # userId = request.args.get('userId', default = None, type = str)
+
         if auth.current_user is None:
             return jsonify({"message": "Missing authorization token"}), 401
         
