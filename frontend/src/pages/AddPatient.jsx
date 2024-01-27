@@ -3,9 +3,9 @@ import { Link , useNavigate} from 'react-router-dom'
 
 
 const AddPatient = () => {
-
-    const [patient, setPatient] = React.useState('');
-//parth3@gmail.com
+  
+  const [patient, setPatient] = React.useState('');
+  
   const navigate = useNavigate();
   const handleSubmit = async(e) => {
     e.preventDefault();
