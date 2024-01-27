@@ -1,4 +1,21 @@
-export const data = [
+import axios from 'axios'
+
+
+const appointmentsData = response.data.appointments
+
+const details = Object.entries(appointmentsData).map(([id, details]) => ({
+  startDate: new Date(details.startDate),
+  endDate: new Date(details.endDate),
+  text: details.title,
+}))
+
+console.log(appointmentsData)
+console.log("details:", details)
+
+
+
+
+export const data1 = [
     {
       text: 'Website Re-Design Plan',
       startDate: new Date('2021-04-26T16:30:00.000Z'),

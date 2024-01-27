@@ -67,7 +67,6 @@ const Routers = () => {
     <Route path='/addpatient' element={<DoctorRoute component={AddPatient}/>}></Route>
     <Route path='/profile' element={<AuthRoute component={ElderProfile}/>}></Route>
     <Route path='/schedule' element={<AuthRoute component={Calendar}/>}></Route>
-
   </Routes>
   )
 }

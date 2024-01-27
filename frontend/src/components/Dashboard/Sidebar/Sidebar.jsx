@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 
 const Sidebar = ({handleChange}) => {
-  const [selected, setSelected] = useState('Overview');
+  const [selected, setSelected] = useState('Patient List');
   const handleComponentChange = (e) => {
     const newOption = e.target.innerText.replace(/ +/g, "");
     setSelected(e.target.innerText);
     handleChange(newOption);
   }
   const options = [
+   
    'Overview',
    'Patient List',
    'Payment Info',
