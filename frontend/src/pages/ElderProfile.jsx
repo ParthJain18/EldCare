@@ -5,13 +5,19 @@ import SidePanel from '../components/ElderProfile/SidePanel';
 import { Link } from 'react-router-dom';
 
 const ElderProfile = () => {
+  const [userType, setUserType] = React.useState(localStorage.getItem('userType'));
   return (
     <div className='container py-6'>
+        {userType === 'Relative' ? "" : 
         <Link to='/dashboard'>
         <button className='bg-blue-500 text-sm font-bold hover:bg-blue-700 text-white rounded-xl px-4 py-2 mb-4'>&lt; Back</button>
-        </Link>
-        <h1 className='heading'>Patient Profile</h1>
-        <h1 className='mt-2 px-2'>Patients &gt; Rajendra Joshi</h1>
+        </Link>}
+        <h1 className='heading'>
+          {userType === 'Relative' ? 'Elder Profile' : 'Patient Profile'}
+        </h1>
+        {userType === 'Relative' ? "" : 
+        <h1 className='mt-2 px-2'>Patients &gt; Rajendra Joshi</h1>}
+        
         <div className='w-full flex flex-row px-2 py-3 gap-4'>
             <div className='w-3/4 flex flex-col gap-4'>
                 <ElderDetails/>
