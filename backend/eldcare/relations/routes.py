@@ -38,8 +38,8 @@ def add_relative():
         relative_dict = db.child("users").order_by_child("email").equal_to(patientEmail).get().val()
         relativeId = next(iter(relative_dict))
 
-        db.child("elderly").child(patientId).child("relative_list").push(relativeId)
-        db.child("relative").child(relativeId).child("relative_list").push(patientId)
+        db.child("relative").child(patientId).child("relative_list").push(relativeId)
+        db.child("elderly").child(relativeId).child("relative_list").push(patientId)
         return jsonify({"message": "Relative added successfully!"}), 201
     except Exception as e:
         return jsonify({"message": "An error occurred while adding relative.","error": str(e)}), 402
@@ -65,6 +65,7 @@ def get_relatives():
             return jsonify({"message": "Missing authorization token"}), 401
         user = auth.current_user
         userId = user["localId"]
+        print(db.child("relative").child(userId).child("relative_list").get().val())
         relatives = db.child("relative").child(userId).child("relative_list").get().val()
         return jsonify({"message": "Relatives retrieved successfully!", "relatives": relatives}), 200
     except Exception as e:
@@ -126,4 +127,3 @@ def get_relative(userId):
         return jsonify({"message": "Relative retrieved successfully!", "relative": relative}), 200
     except Exception as e:
         return jsonify({"message": "An error occurred while retrieving relative.","error": str(e)}), 402
-    

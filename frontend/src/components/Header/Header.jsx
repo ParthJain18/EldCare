@@ -34,7 +34,7 @@ const relativeLinks = [
     display: "Home",
   },
   {
-    path: "/profile/:id",
+    path: "/relativedash",
     display: "Profile",
   },
   {
