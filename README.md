@@ -56,3 +56,16 @@ EldCare is a revolutionary application designed to empower elderly individuals b
       ```bash
       cd backend/
       python app.py
+
+   ![image](https://github.com/ParthJain18/KnowCode-O-Tetra-/assets/113703908/2a77247a-b139-407b-bb02-c8f2883b3df2)
+   ![image](https://github.com/ParthJain18/KnowCode-O-Tetra-/assets/113703908/39362417-2ae9-4ba1-ad52-72101751351f)
+   ![image](https://github.com/ParthJain18/KnowCode-O-Tetra-/assets/113703908/ed7ae966-345d-4e1a-9b4c-b96964c3891a)
+   ![image](https://github.com/ParthJain18/KnowCode-O-Tetra-/assets/113703908/3e54c16c-f9c2-437a-95ee-b74120c26fb8)
+   ![image](https://github.com/ParthJain18/KnowCode-O-Tetra-/assets/113703908/23afbc81-93e7-4b72-9ab2-74886a033f07)
+   ![image](https://github.com/ParthJain18/KnowCode-O-Tetra-/assets/113703908/24eefa5b-2c46-43ba-bbdc-90c94acf2870)
+   ![image](https://github.com/ParthJain18/KnowCode-O-Tetra-/assets/113703908/f5141b55-6b4e-4bc4-a209-4e49a99a1279)
+
+
+
+
+
