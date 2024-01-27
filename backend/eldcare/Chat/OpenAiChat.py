@@ -6,8 +6,10 @@ import pyrebase
 
 db = pyrebase.initialize_app(firebase_config).database()
 
+OPEN_AI_KEY = "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"
+
 def get_schedule_answer(userInput, userId):
-    client = OpenAI(api_key="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")
+    client = OpenAI(api_key=OPEN_AI_KEY)
     # client = OpenAI()
 
     data = db.child("schedule").child(userId).get().val()
@@ -52,7 +54,7 @@ def get_schedule_answer(userInput, userId):
     return completion.choices[0].message.content
 
 def get_general_answer(userInput):
-    client = OpenAI(api_key="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")
+    client = OpenAI(api_key=OPEN_AI_KEY)
     completion = client.chat.completions.create(
 
         model="gpt-3.5-turbo",
@@ -70,7 +72,7 @@ def get_general_answer(userInput):
 # get_schedule_answer("When is my next appointment after todays?", "dxQ114IvBPb9ZEc1kLmOsvWcLiw2")
 
 def set_reminder(input_text):
-    client = OpenAI(api_key="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")
+    client = OpenAI(api_key=OPEN_AI_KEY)
     
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
