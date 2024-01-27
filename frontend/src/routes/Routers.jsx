@@ -84,7 +84,7 @@ const Routers = () => {
     <Route path='/contact' element={<Contact/>}></Route>
     <Route path='/services' element={<Services/>}></Route>
     <Route path='/appointment' element={<Appointment/>}></Route>
-    <Route path='/map' element={<Map/>}></Route>
+    <Route path='/map/:id' element={<RelativeRoute component={Map}/>}></Route>
     <Route path='/relativedash' element={<RelativeRoute component={RelativeDash}/>}></Route>
     <Route path='/addelder' element={<RelativeRoute component={AddElder}/>}></Route>
     <Route path='/addpatient' element={<DoctorRoute component={AddPatient}/>}></Route>

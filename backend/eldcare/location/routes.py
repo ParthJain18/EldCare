@@ -6,7 +6,7 @@ from config import firebase_config
 
 db = pyrebase.initialize_app(firebase_config).database()
 
-@app.route("location/<userId>", methods=["GET"])
+@app.route("/location/<userId>", methods=["GET"])
 def get_location(userId):
     from eldcare.auth.methods import auth
     try:
