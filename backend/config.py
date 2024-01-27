@@ -20,7 +20,7 @@ apiKey: "AIzaSyDXQ1yEBif-6R0ooFmgy-xMQthSyaLdY1k",
     https://console.firebase.google.com/u/0/project/eldcare-c4ce6/database/eldcare-c4ce6-default-rtdb/data/~2F
 '''
 
-from app import app
+# from app import app
 
 firebase_config = {
     "apiKey": "AIzaSyDXQ1yEBif-6R0ooFmgy-xMQthSyaLdY1k",
@@ -29,5 +29,5 @@ firebase_config = {
     "storageBucket": "eldcare-c4ce6.appspot.com"
 }
 
-app.config['SECRET_KEY'] = "PARTH"
-app.config['FIREBASE_CONFIG'] = firebase_config
+# app.config['SECRET_KEY'] = "PARTH"
+# app.config['FIREBASE_CONFIG'] = firebase_config
