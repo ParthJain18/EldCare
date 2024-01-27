@@ -9,6 +9,8 @@ import Doctors from '../pages/Hospitals/Hospitals'
 import DoctorDetails from '../pages/Hospitals/HospitalDetails'
 import ElderProfile from '../pages/ElderProfile';
 import Calendar from '../components/Calendar/Calendar'
+import DashBoard from '../pages/DashBoard'
+import Appointment from '../pages/Appointment'
 
 const Routers = () => {
   const isAuthenticated = () => {
@@ -63,6 +65,7 @@ const Routers = () => {
     <Route path='/dashboard' element={<DashBoard/>}></Route>
     <Route path='/profile' element={<ElderProfile/>}></Route>
     <Route path='/schedule' element={<Calendar/>}></Route>
+    <Route path='/appointment' element={<Appointment/>}></Route>
 
   </Routes>
   )

@@ -24,52 +24,46 @@ const Appointment = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  const submitHandler = async e => {
+    e.preventDefault();
+    try {
+      const { name, email, phone, age, time, hospital, service, gender, role } = formData;
+      console.log(formData);
+      const appointmentRef = doc(db, 'appointments', user.uid + time);
+      await setDoc(appointmentRef, {
+        name: name,
+        email: email,
+        phone: phone,
+        age: age,
+        time: time,
+        hospital: hospital,
+        service: service,
+        gender: gender,
+        role: role,
+        user: user.uid
+      }).then(() => {
+        console.log('Appointment data saved successfully!');
 
-//   const submitHandler = async e => {
-//     e.preventDefault();
+        //show success message and redirect to home page
+        alert('Appointment Saved Successfully!  Proceed for payment ?');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          age: '',
+          time: '',
+          hospital: '',
+          service: '',
+          gender: '',
+          role: 'patient',
+        });
+        window.location.href = 'https://buy.stripe.com/9AQ8ycdhNefx8ne9AB';
+      });
 
-//     try {
-//       const { name, email, phone, age, time, hospital, service, gender, role } = formData;
-//       console.log(formData);
-
-//       const appointmentRef = doc(db, 'appointments', user.uid + time);
-
-//       await setDoc(appointmentRef, {
-//         name: name,
-//         email: email,
-//         phone: phone,
-//         age: age,
-//         time: time,
-//         hospital: hospital,
-//         service: service,
-//         gender: gender,
-//         role: role,
-//         user: user.uid
-//       }).then(() => {
-//         console.log('Appointment data saved successfully!');
-
-//         //show success message and redirect to home page
-//         alert('Appointment Saved Successfully!  Proceed for payment ?');
-//         setFormData({
-//           name: '',
-//           email: '',
-//           phone: '',
-//           age: '',
-//           time: '',
-//           hospital: '',
-//           service: '',
-//           gender: '',
-//           role: 'patient',
-//         });
-//         window.location.href = 'https://buy.stripe.com/9AQ8ycdhNefx8ne9AB';
-//       });
-
-
-
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 
   return (
@@ -87,7 +81,7 @@ const Appointment = () => {
             <h3 className='text-headingColor text-[22px] leading-9 font-bold mb-10'>
               Book an <span className='text-primaryColor'>Appointment 📝</span>
             </h3>
-            
+
             <form onSubmit={submitHandler}>
               <div className="mb-5">
                 <input type="text" placeholder='Full Name' name='name' value={formData.name} onChange={handleInputChange} className='w-full pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor ' required />
@@ -140,7 +134,6 @@ const Appointment = () => {
                     <option value="global">Global Hospital, Parel East</option>
                     <option value="lotus">Lotus Hospital, Borivali West</option>
                     <option value="yashoda">Yashoda Hospital, Marine Lines</option>
-
                   </select>
                 </label>
 
