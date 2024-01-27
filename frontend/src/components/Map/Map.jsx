@@ -1,17 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5pa2VzaDAyIiwiYSI6ImNscnZ4M2VkcjBsY3Aya282MG1sN2E2cDkifQ.R-psoYeBCQg_WI-ohOM1jg';
 
 const Map = () => {
+  const { id } = useParams();
+  const [coordinates, setCoordinates] = useState({
+    latitude: 0,
+    longitude: 0
+  });
+  useEffect(() => {
+    const fetchLocation = async () => {
+      try {
+        const res = await axios.get(`http://localhost:5000/location/${id}`);
+        console.log(res);
+        const s = res.data.location
+        const [latitude, longitude] = s.split(', ').map(parseFloat);
+        setCoordinates({
+          latitude: latitude,
+          longitude: longitude
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchLocation();
+  },[])
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v12',
-      center: [72.8777, 19.0760],
+      center: [72.8999, 19.0728],
       zoom: 6
     });
 
@@ -35,7 +59,7 @@ const Map = () => {
 
     // Add a marker at a specific location
     const marker = new mapboxgl.Marker({ color: 'blue' })
-      .setLngLat([72.8777, 19.0760])
+      .setLngLat([72.8999, 19.0728])
       .addTo(map);
 
     // Clean up map on component unmount
