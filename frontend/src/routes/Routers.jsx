@@ -42,7 +42,7 @@ const Routers = () => {
     }
   };
   
-  const RelativeRoute = ({ component: Component }) => {
+  const NotDocRoute = ({ component: Component }) => {
     if (isAuthenticated()) {
       const type = localStorage.getItem("userType");
       if(type == "Doctor"){
@@ -50,13 +50,13 @@ const Routers = () => {
       }
       return <Component />;
     } else {
-      // Redirect to the sign-in page if not authenticated
-      return <Navigate to="/login" />;
+      // Redirect to the home page if not authenticated
+      return <Navigate to="/" />;
     }
   };
   return (
   <Routes>
-    <Route path='/' element={<Home/>}></Route>
+    <Route path='/' element={<NotDocRoute component={Home}/>}></Route>
     <Route path='/hospital' element={<Doctors/>}></Route>
     <Route path='/doctors/:id' element={<DoctorDetails/>}></Route>
     <Route path='/login' element={<Login/>}></Route>
@@ -65,8 +65,8 @@ const Routers = () => {
     <Route path='/services' element={<Services/>}></Route>
     <Route path='/addpatient' element={<DoctorRoute component={AddPatient}/>}></Route>
     <Route path='/dashboard' element={<DoctorRoute component={DashBoard}/>}></Route>
-    <Route path='/profile' element={<AuthRoute component={ElderProfile}/>}></Route>
-    <Route path='/schedule' element={<AuthRoute component={Calendar}/>}></Route>
+    <Route path='/profile/:id' element={<AuthRoute component={ElderProfile}/>}></Route>
+    <Route path='/schedule/:id' element={<AuthRoute component={Calendar}/>}></Route>
 
   </Routes>
   )
