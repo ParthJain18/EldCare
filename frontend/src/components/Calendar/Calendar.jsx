@@ -59,12 +59,14 @@ const Calendar = () => {
 
   const onAppointmentAdding = useCallback(async (e) => {
     console.log(e);
+    const byUserType = localStorage.getItem('userType');
     const response = await axios.post('http://localhost:5000/schedule', {
       title: e.appointmentData.text,
       startDate: e.appointmentData.startDate,
       endDate: e.appointmentData.endDate,
       allDay: e.appointmentData.allDay,
-      userId: patientId
+      userId: patientId,
+      byUserType: byUserType
     });
     console.log(response);
   });
