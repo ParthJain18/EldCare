@@ -13,8 +13,12 @@ import DashBoard from '../pages/Dashboard';
 import AddPatient from '../pages/AddPatient';
 import { Navigate } from 'react-router-dom';
 import Map from '../components/Map/Map'
+
+import Appointment from '../pages/Appointment'
+
 import RelativeDash from '../pages/RelativeDash'
 import AddElder from '../pages/AddElder'
+
 
 const Routers = () => {
   const isAuthenticated = () => {
@@ -79,6 +83,7 @@ const Routers = () => {
     <Route path='/signup' element={<Signup/>}></Route>
     <Route path='/contact' element={<Contact/>}></Route>
     <Route path='/services' element={<Services/>}></Route>
+    <Route path='/appointment' element={<Appointment/>}></Route>
     <Route path='/map' element={<Map/>}></Route>
     <Route path='/relativedash' element={<RelativeRoute component={RelativeDash}/>}></Route>
     <Route path='/addelder' element={<RelativeRoute component={AddElder}/>}></Route>
