@@ -38,6 +38,15 @@ fun signupFirebase(userObj: Users, context: Context, callback: (Boolean) -> Unit
                 user?.updateProfile(profileUpdates)
                     ?.addOnCompleteListener { profileUpdateTask ->
                         if (profileUpdateTask.isSuccessful) {
+                            db.getReference("elderly").child(user.uid)
+                                .setValue(
+                                    mapOf(
+                                        "email" to userObj.email,
+                                        "userType" to userObj.userType,
+                                        "name" to userObj.name,
+                                        "phoneNumber" to userObj.phoneNumber,
+                                    )
+                                )
                             db.getReference("users").child(user.uid)
                                 .setValue(
                                     mapOf(

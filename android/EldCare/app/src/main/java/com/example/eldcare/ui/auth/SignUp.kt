@@ -1,5 +1,6 @@
 package com.example.eldcare.ui.auth
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowBack
@@ -37,11 +38,12 @@ fun SignUpScreen(modifier: Modifier = Modifier, onNavigate: () -> Unit = {}) {
 
     var userEmail by remember { mutableStateOf("") }
     var userPass by remember { mutableStateOf("") }
+    var userPass2 by remember { mutableStateOf("") }
     var phoneNumber by remember { mutableStateOf("") }
     var name by remember { mutableStateOf("") }
-    var isLoading by remember {
-        mutableStateOf(false)
-    }
+//    var isLoading by remember {
+//        mutableStateOf(false)
+//    }
 
     val context = LocalContext.current
 
@@ -111,8 +113,8 @@ fun SignUpScreen(modifier: Modifier = Modifier, onNavigate: () -> Unit = {}) {
 
                     CustomTextField(
                         modifier = Modifier.padding(10.dp),
-                        value = userPass,
-                        onValueChange = { userPass = it },
+                        value = userPass2,
+                        onValueChange = { userPass2 = it },
                         label = stringResource(R.string.confirm_password),
                         leadingIcon = Icons.Outlined.Lock
                     )
@@ -121,29 +123,33 @@ fun SignUpScreen(modifier: Modifier = Modifier, onNavigate: () -> Unit = {}) {
                     CustomButton(
                         modifier = Modifier.padding(10.dp),
                         onClick = {
+                            if (userPass != userPass2) {
+                                Toast.makeText(context, "Passwords do not match", Toast.LENGTH_SHORT).show()
+                                return@CustomButton
+                            }
                             val user = Users(
                                 name = name,
                                 email = userEmail,
                                 phoneNumber = phoneNumber,
                                 password = userPass
                             )
-                            isLoading = true
+//                            isLoading = true
                             signupFirebase(userObj = user, context = context) { success ->
                                 if (success) {
                                     onNavigate()
                                 }
-                                else {
-                                    isLoading = false
-                                }
+//                                else {
+//                                    isLoading = false
+//                                }
                             }
 //                            onNavigate()
                         }
                     ) {
-                        if (isLoading) {
-                            CircularLoader()
-                        } else {
+//                        if (isLoading) {
+//                            CircularLoader()
+//                        } else {
                             Text(text = stringResource(R.string.sign_up))
-                        }
+//                        }
                     }
                 }
             )

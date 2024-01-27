@@ -32,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -40,6 +41,7 @@ import com.example.eldcare.R
 import com.example.eldcare.controllers.apis.getResponse
 import com.example.eldcare.ui.CustomTopAppBar
 import com.example.eldcare.ui.MessageCard
+import com.example.eldcare.ui.features.reminders.sendReminder
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -51,6 +53,8 @@ import kotlinx.coroutines.launch
 fun ChatScreen(viewModel: ChatViewModel = viewModel(), onNavIconClick: () -> Unit = {}) {
     val messages = viewModel.messages.collectAsState()
     val listState = rememberLazyListState()
+
+
 
     CustomTopAppBar(
         title = stringResource(R.string.eld_care),
@@ -99,6 +103,7 @@ fun ChatScreen(viewModel: ChatViewModel = viewModel(), onNavIconClick: () -> Uni
 @Composable
 fun ChatTextField(viewModel: ChatViewModel) {
     var newMessage by remember { mutableStateOf("") }
+    val context = LocalContext.current
 
     Row(
         modifier = Modifier
@@ -124,6 +129,10 @@ fun ChatTextField(viewModel: ChatViewModel) {
                 GlobalScope.launch {
                     val response = getResponse(msg){
                         if (it == null) return@getResponse
+                        if (it.chat.startsWith("[")){
+                                sendReminder(it.chat, context)
+                                return@getResponse
+                            }
                         viewModel.sendMessage(it.chat, false)
                     }
                     // Use the response here

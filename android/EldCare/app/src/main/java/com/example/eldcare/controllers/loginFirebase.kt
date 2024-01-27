@@ -6,6 +6,7 @@ import android.widget.Toast
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import com.google.firebase.database.FirebaseDatabase
 
 private lateinit var auth: FirebaseAuth
 
@@ -15,9 +16,10 @@ fun loginFirebase(email: String, password: String, context: Context, callback: (
     auth.signInWithEmailAndPassword(email, password)
         .addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val user = auth.currentUser
+//                val user = auth.currentUser
 //                val sharedPrefManager = SharedPreferencesManager(context)
 //                sharedPrefManager.syncData()
+
 
                 callback(true)
             } else {

@@ -36,9 +36,9 @@ fun LoginScreen(modifier: Modifier = Modifier, onLogIn: () -> Unit = {}, onSignU
 
     var userName by remember { mutableStateOf("") }
     var userPass by remember { mutableStateOf("") }
-    var isLoading by remember {
-        mutableStateOf(false)
-    }
+//    var isLoading by remember {
+//        mutableStateOf(true)
+//    }
 
     val context = LocalContext.current
 
@@ -91,30 +91,30 @@ fun LoginScreen(modifier: Modifier = Modifier, onLogIn: () -> Unit = {}, onSignU
                                 Toast.makeText(context, "Please enter email and password", Toast.LENGTH_SHORT).show()
                                 return@CustomButton
                             }
-                            isLoading = true
+//                            isLoading = true
                             loginFirebase(userName, userPass, context) {
                                 if (it) {
                                     onLogIn()
                                 }
-                                isLoading = false
+//                                isLoading = false
                             }
 
                         }
                     ) {
-                        if (!isLoading) {
+//                        if (!isLoading) {
                             Text(
                                 text = stringResource(R.string.log_in),
                                 modifier.padding(horizontal = 10.dp, vertical = 5.dp),
                                 fontSize = 20.sp
                             )
-                        }
-                        else {
-                            CircularProgressIndicator(
-                                modifier = Modifier
-                                    .padding(vertical = 5.dp)
-                                    .size(27.dp)
-                            )
-                        }
+//                        }
+//                        else {
+//                            CircularProgressIndicator(
+//                                modifier = Modifier
+//                                    .padding(vertical = 5.dp)
+//                                    .size(27.dp)
+//                            )
+//                        }
                     }
 
                     Spacer(modifier = Modifier.height(20.dp))
