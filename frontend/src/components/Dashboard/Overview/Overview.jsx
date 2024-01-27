@@ -2,7 +2,7 @@ import React from 'react'
 
 const Overview = () => {
   return (
-    <div className=' flex flex-col px-2 py-8 gap-6'>
+    <div className=' flex flex-col px-2 py-1 gap-6'>
       <h1 className='heading px-3'>My Dashboard</h1>
       <div className='flex flex-row py-9'>
         <div className='w-3/4 px-3'>

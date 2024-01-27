@@ -12,7 +12,7 @@ const DashBoard = () => {
     PaymentInfo: <PaymentInfo />,
     Settings: <Settings />
   }
-  const [Option, setOption] = useState('Overview');
+  const [Option, setOption] = useState('PatientList');
   const handleChange = (newOption) => {
     setOption(newOption)
   }
