@@ -15,6 +15,7 @@ def create_appointment():
     title = request.json.get("title")
     allDay = request.json.get("allDay")
     description = request.json.get("description")
+    byUserType = request.json.get("byUserType")
 
     try:
         if auth.current_user is None:
@@ -26,7 +27,8 @@ def create_appointment():
             "endDate": endDate,
             "title": title,
             "allDay": allDay,
-            "description": description
+            "description": description,
+            "byUserType": byUserType,
             }
 
         db.child("schedule").child(schedule_id).child(appointmentId).set(appointment_data)
