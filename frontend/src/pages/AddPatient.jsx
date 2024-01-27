@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link , useNavigate} from 'react-router-dom'
-
+import axios from 'axios'
 
 const AddPatient = () => {
   
@@ -9,23 +9,15 @@ const AddPatient = () => {
   const navigate = useNavigate();
   const handleSubmit = async(e) => {
     e.preventDefault();
-    const docId = localStorage.getItem('email');
-    const res = await fetch(`http://localhost:5000/addPatient`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        patientId : patientId,
+    try {
+      const response = await axios.post('http://localhost:5000/addPatient', {
+        patientEmail : patient
       })
-    })
-    const data = await res.json();
-    if(data.status === 'success'){
-      window.location.reload();
-      navigate('/dashboard');
-    }
-    else{
-      alert('Patient Already Exists');
+      console.log(response)
+      navigate('/dashboard')
+      location.reload(); 
+    }catch (err) {
+      console.log(err)
     }
   }
   return (
@@ -33,7 +25,7 @@ const AddPatient = () => {
     <Link to='/dashboard'>
         <button className='bg-blue-500 text-sm font-bold hover:bg-blue-700 text-white rounded-xl px-4 py-2 mb-4'>&lt; Back</button>
     </Link>
-    <form className='mb-5'>   
+    <form className='mb-5' onSubmit={handleSubmit}>   
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
       <div class="relative">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

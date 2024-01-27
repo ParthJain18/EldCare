@@ -74,7 +74,7 @@ def register():
 
     response = make_response(jsonify({"message": "Registration successful!", "userDetails": userDetails, "jwtToken": user["idToken"]}), 200)
 
-    response.set_cookie('jwtToken', user["idToken"], httponly=True, samesite='Strict')
+    response.set_cookie('jwtToken', user["idToken"], expires=99999999, httponly=True, samesite='Strict')
 
     return response, 200
 
@@ -99,5 +99,5 @@ def login():
 
     response = make_response(jsonify({"message": "Login successful!", "userDetails": userDetails, "jwtToken": user["idToken"]}), 200)
 
-    response.set_cookie('jwtToken', user["idToken"], httponly=True, samesite='Strict')
+    response.set_cookie('jwtToken', user["idToken"], expires=99999999, httponly=True, samesite='Strict')
     return response, 200
