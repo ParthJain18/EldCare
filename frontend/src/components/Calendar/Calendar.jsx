@@ -6,7 +6,7 @@ import 'devextreme/dist/css/dx.light.css';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
-const currentDate = new Date(2024, 1, 27);
+const currentDate = new Date(2024, 0, 28);
 const views = ['day', 'week'];
 const showToast = (event, value, type) => {
   notify(`${event} "${value}" task`, type, 800);
@@ -41,10 +41,8 @@ const Calendar = () => {
     async function fetchPatientSchedule() {
       const patientSchedule = await axios.get("http://localhost:5000/schedule/" + patientId);
       console.log(patientSchedule);
-      if(!patientSchedule.text){
-        return;
-      }
-      const appointmentsData = patientSchedule.data.appointments
+      let appointmentsData = null;
+      if(patientSchedule.data.appointments) appointmentsData = patientSchedule.data.appointments;
       const data1 = appointmentsData
         ? Object.entries(appointmentsData).map(([id, details]) => ({
           startDate: new Date(details.startDate),

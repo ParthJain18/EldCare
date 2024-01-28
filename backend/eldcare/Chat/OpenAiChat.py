@@ -3,10 +3,12 @@ from config import firebase_config
 from datetime import datetime
 import pytz
 import pyrebase
+import dotenv
 
 db = pyrebase.initialize_app(firebase_config).database()
 
-OPEN_AI_KEY = "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"
+
+OPEN_AI_KEY = dotenv.get_key('.env', 'OPEN_AI_KEY')
 
 def get_schedule_answer(userInput, userId):
     client = OpenAI(api_key=OPEN_AI_KEY)
@@ -43,7 +45,7 @@ def get_schedule_answer(userInput, userId):
 
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a nurse/ assistant for an elderly person. You need to be able to answer questions about the elderly person's schedule strictly from the schedule given below, such as What time is the appointment? or What is the appointment for? \n Today's date is 28-01-2024. \nIf there is no appointment today, you can say there is no appointment today. Don't make things up."},
+            {"role": "system", "content": "You are a nurse/ assistant for an elderly person. You need to be able to answer questions about the elderly person's schedule strictly from the schedule given below, such as What time is the appointment? or What is the appointment for? \n Today's date is 28-01-2024. \nIf there is no appointment today, you can say there is no appointment today and that their schedule is free. Don't make things up. Be helpful and cheerful"},
             {"role": "assistant", "content": "Schedule is: \n" + schedule},
             {"role": "user", "content": userInput}
         ],
@@ -77,7 +79,7 @@ def set_reminder(input_text):
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "you have to help a computer function to set a reminder on a set time for a specific title that the user wants. So answer strictly in this example format: \n [time, title]\nor example:\n[2024-02-26T18:30:00.000Z, perform certain task]\n\n according to what the user intends to do. If he doesn't specify a time, try your best to guess it. Today's date and time is 2024-02-26T18:30:00.000Z"},
+            {"role": "system", "content": "you have to help a computer function to set a reminder on a set time for a specific title that the user wants. So answer strictly in this example format: \n [startTime, endTime, title]\nor example:\n[2024-02-26T18:30:00.000Z, 2024-02-26T19:30:00.000Z, perform certain task]\n\n according to what the user intends to do. If he doesn't specify a time, try your best to guess it. Today's date and time is 2024-01-28T06:30:00.000Z"},
             {"role": "user", "content": input_text}
         ],
         temperature=0.1,

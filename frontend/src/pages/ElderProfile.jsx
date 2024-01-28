@@ -26,7 +26,11 @@ const ElderProfile = () => {
   const [userType, setUserType] = React.useState(localStorage.getItem('userType'));
   return (
     <div className='container py-6'>
-        {userType === 'Relative' ? "" : 
+      
+        {userType === 'Relative' ? 
+        <Link to='/relativedash'>
+        <button className='bg-blue-500 text-sm font-bold hover:bg-blue-700 text-white rounded-xl px-4 py-2 mb-4'>&lt; Back</button>
+        </Link> :
         <Link to='/dashboard'>
         <button className='bg-blue-500 text-sm font-bold hover:bg-blue-700 text-white rounded-xl px-4 py-2 mb-4'>&lt; Back</button>
         </Link>}
