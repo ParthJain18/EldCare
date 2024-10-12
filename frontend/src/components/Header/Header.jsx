@@ -22,6 +22,10 @@ const navLinks = [
     path: "/contact",
     display: "Contact Us",
   },
+  {
+    path: "/pricing",
+    display: "Buy Premium",
+  },
 ];
 
 const DoctorNavLinks = [
@@ -49,6 +53,10 @@ const relativeLinks = [
   {
     path: "/contact",
     display: "Contact Us",
+  },
+  {
+    path: "/pricing",
+    display: "Buy Premium",
   },
 ];
 

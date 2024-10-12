@@ -9,15 +9,19 @@ import Doctors from '../pages/Hospitals/Hospitals'
 import DoctorDetails from '../pages/Hospitals/HospitalDetails'
 import ElderProfile from '../pages/ElderProfile';
 import Calendar from '../components/Calendar/Calendar'
+import PricingCard from '../components/Subscription/PricingCard'
 import DashBoard from '../pages/Dashboard';
 import AddPatient from '../pages/AddPatient';
 import { Navigate } from 'react-router-dom';
 import Map from '../components/Map/Map'
 
+
+
 import Appointment from '../pages/Appointment'
 
 import RelativeDash from '../pages/RelativeDash'
 import AddElder from '../pages/AddElder'
+
 
 
 const Routers = () => {
@@ -91,7 +95,8 @@ const Routers = () => {
     <Route path='/dashboard' element={<DoctorRoute component={DashBoard}/>}></Route>
     <Route path='/profile/:id' element={<AuthRoute component={ElderProfile}/>}></Route>
     <Route path='/schedule/:id' element={<AuthRoute component={Calendar}/>}></Route>
-
+     <Route path='/pricing' element={<PricingCard/>}></Route>
+    {/* <Route path='/payment' element={<Payment/>}></Route>  */}
   </Routes>
   )
 }
