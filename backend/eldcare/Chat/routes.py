@@ -3,7 +3,7 @@ import pyrebase
 from app import app
 from config import firebase_config
 from eldcare.chatClassifier.classifier_model import classify_chat
-from eldcare.LangChain.langchainChat import get_schedule_answer, get_general_answer
+from eldcare.Chat.OpenAiChat import get_schedule_answer, get_general_answer, set_reminder
 
 db = pyrebase.initialize_app(firebase_config).database()
 
@@ -11,12 +11,13 @@ db = pyrebase.initialize_app(firebase_config).database()
 def get_chat():
     from eldcare.auth.methods import auth
     input_text = request.json.get("input_text")
+    userId = request.json.get("userId")
     try:
-        if auth.current_user is None:
-            return jsonify({"message": "Missing authorization token"}), 401
         chat_type = classify_chat(input_text)
         if chat_type == "schedule-related":
-            res = get_schedule_answer(input_text)
+            res = get_schedule_answer(input_text, userId)
+        elif chat_type == "reminder":
+            res = set_reminder(input_text)
         else:
             res = get_general_answer(input_text)
 

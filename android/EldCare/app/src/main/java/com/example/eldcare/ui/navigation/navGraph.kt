@@ -19,7 +19,6 @@ fun AppNavigator() {
     auth = Firebase.auth
     val currentUser = auth.currentUser
 
-
     val startingScreen = if (currentUser == null) {
         "LogInScreen"
     } else {
@@ -33,7 +32,10 @@ fun AppNavigator() {
                     navController.popBackStack()
                     navController.navigate("NavDrawer")
                 },
-                onSignUp = { navController.navigate("SignUpScreen") })
+                onSignUp = {
+                    navController.popBackStack()
+                    navController.navigate("SignUpScreen")
+                })
         }
         composable("SignUpScreen") {
             SignUpScreen(onNavigate = {
@@ -45,7 +47,7 @@ fun AppNavigator() {
         {
             NavigationDrawer(
                 onLogOut = {
-                    navController.popBackStack("LogInScreen", true)
+                    navController.popBackStack()
                     navController.navigate("LogInScreen")
             })
         }

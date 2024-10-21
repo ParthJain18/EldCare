@@ -8,11 +8,18 @@
                 "Is there anything important I need to do today?",
                 "Is there a doctor's appointment scheduled for me this week?",
                 "When is my next grocery shopping trip?",
-                "Reminder: Call Margaret at 6pm.",
-                "Remind me to take my blood pressure medication at 8am.",
                 "Should I take my walk before or after breakfast?",
                 "Can you tell me if I have any appointments on Tuesday?",
-                "Is there anything planned for my birthday next month?"
+                "Is there anything planned for my birthday next month?",
+                "What time is my next doctor's appointment?",
+                "Can you tell me if I have any appointments on Tuesday?",
+                "Is there anything planned for my birthday next month?",
+                "What time is my next doctor's appointment?",
+                "When do I need to take my next dose of medication?",
+                "when do you think I should take my next dose of medication?",
+                "what's on my schedule for tomorrow?",
+                "what's on my schedule for the rest of the week?",
+                "what's on my schedule for the rest of the month?"
             ]
         },
         {
@@ -27,7 +34,12 @@
                 "Don't forget! Book tickets for the play next week.",
                 "Add a reminder to feed the dog before I leave for work.",
                 "Please remind me to pick up milk and eggs at the store later.",
-                "Can you set an alarm for me to wake up early on Saturday?"
+                "Can you set an alarm for me to wake up early on Saturday?",
+                "Reminder: Call Margaret at 6pm.",
+                "Remind me to take my blood pressure medication at 8am.",
+                "remind me to take out the trash tomorrow morning.",
+                "remind me to take my medication at 8am.",
+                "remind me to visit Albert tomorrow at 12pm."
             ]
         },
         {

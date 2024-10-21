@@ -14,8 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.eldcare.ui.features.chat.ChatScreen
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
+private lateinit var auth: FirebaseAuth
 
 @Preview
 @Composable
@@ -32,7 +34,11 @@ fun NavigationDrawer(onLogOut: () -> Unit = { }) {
                 NavigationDrawerItem(
                     label = { Text(text = "Log Out") },
                     selected = false,
-                    onClick = { onLogOut() }
+                    onClick = {
+                        auth = FirebaseAuth.getInstance()
+                        auth.signOut()
+                        onLogOut()
+                    }
                 )
                 // ...other drawer items
             }

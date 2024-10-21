@@ -9,16 +9,17 @@ db = pyrebase.initialize_app(firebase_config).database()
 @app.route("/schedule", methods=["POST"])
 def create_appointment():
     from eldcare.auth.methods import auth
+    schedule_id = request.json.get("userId")
     startDate = request.json.get("startDate")
     endDate = request.json.get("endDate")
     title = request.json.get("title")
     allDay = request.json.get("allDay")
     description = request.json.get("description")
+    byUserType = request.json.get("byUserType")
 
     try:
         if auth.current_user is None:
             return jsonify({"message": "Missing authorization token"}), 401
-        schedule_id = auth.current_user["localId"]
 
         appointmentId = db.generate_key()
         appointment_data = {
@@ -26,7 +27,8 @@ def create_appointment():
             "endDate": endDate,
             "title": title,
             "allDay": allDay,
-            "description": description
+            "description": description,
+            "byUserType": byUserType,
             }
 
         db.child("schedule").child(schedule_id).child(appointmentId).set(appointment_data)
@@ -41,6 +43,7 @@ def get_appointments(userId):
     from eldcare.auth.methods import auth
     try:
         # userId = request.args.get('userId', default = None, type = str)
+
         if auth.current_user is None:
             return jsonify({"message": "Missing authorization token"}), 401
         

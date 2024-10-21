@@ -6,14 +6,27 @@ import { Link } from 'react-router-dom';
 const PatientList = () => {
 
   const [patients, setPatients] = React.useState([]);
-  const docId = localStorage.getItem('userId');
+  // const docId = localStorage.getItem('userId');
   useEffect(() => {
-    const fetchData = async() => {
-    const res = await axios.get(`http://localhost:5000/getPatients/${docId}`)
-    if(res.data.patients == null) return setPatients([]);
-    setPatients(res.data.patients);
-    } 
-    fetchData();
+    const fetchData = async () => {
+      try {
+          const res = await axios.get('http://localhost:5000/getPatients');
+          if (res.data.patients == null) {
+              setPatients([]);
+          } else {
+              // Convert object to array
+              const patientsArray = Object.keys(res.data.patients).map(key => ({
+                  id: key,
+                  data: res.data.patients[key]
+              }));
+              console.log(patientsArray)
+              setPatients(patientsArray);
+          }
+      } catch (error) {
+          console.error('Error fetching patients:', error);
+      }
+  };
+  fetchData();;
   }, [])
   return (
     <section className="">
@@ -28,7 +41,7 @@ const PatientList = () => {
             <h1 className="text-center font-extrabold text-gray-600 text-4xl">You Have No Patients Currently</h1>
             </div>:
             patients.map((patient) => {
-             return <PatientCard key={patient.id}/>   
+             return <PatientCard key={patient} id={patient.data}/>   
             })
         }
       </div>  
