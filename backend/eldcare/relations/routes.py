@@ -45,27 +45,31 @@ def add_relative():
     except Exception as e:
         return jsonify({"message": "An error occurred while adding relative.","error": str(e)}), 402
 
-@app.route("/getPatients/<userId>", methods=["GET"])
-def get_patients(userId):
+@app.route("/getPatients", methods=["GET"])
+def get_patients():
     from eldcare.auth.methods import auth
     try:
         if auth.current_user is None:
             return jsonify({"message": "Missing authorization token"}), 401
+        user = auth.current_user
+        userId = user["localId"]
         patients = db.child("doctors").child(userId).child("patient_list").get().val()
         return jsonify({"message": "Patients retrieved successfully!", "patients": patients}), 200
     except Exception as e:
-        return jsonify({"message": "An error occurred while retrieving patients.","error": e}), 402
+        return jsonify({"message": "An error occurred while retrieving patients.","error": str(e)}), 402
 
-@app.route("/getDoctors/<userId>", methods=["GET"])
-def get_doctors(userId):
+@app.route("/getDoctors", methods=["GET"])
+def get_doctors():
     from eldcare.auth.methods import auth
     try:
         if auth.current_user is None:
             return jsonify({"message": "Missing authorization token"}), 401
+        user = auth.current_user
+        userId = user["localId"]
         doctors = db.child("elderly").child(userId).child("doctor_list").get().val()
         return jsonify({"message": "Doctors retrieved successfully!", "doctors": doctors}), 200
     except Exception as e:
-        return jsonify({"message": "An error occurred while retrieving doctors.","error": e}), 402
+        return jsonify({"message": "An error occurred while retrieving doctors.","error": str(e)}), 402
 
 @app.route("/getRelatives/<userId>", methods=["GET"])
 def get_relatives(userId):
